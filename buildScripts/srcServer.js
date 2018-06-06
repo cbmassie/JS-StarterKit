@@ -1,9 +1,9 @@
-const express = require('express');
-const path = require('path');
-const open = require('open');
+import express from 'express';
+import path from 'path';
+import open from 'open';
 
-var port = 3000;
-var app = express();
+const port = 3000;
+const app = express();
 
 app.get('/', function(req,res){
   res.sendfile(path.join(__dirname, '../src/index.html'));
