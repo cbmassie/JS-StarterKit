@@ -6,10 +6,12 @@
   "license": "MIT",
   "repository": "https://github.com/cbmassie/JS-StarterKit",
   "readme": "README.md",
-  "scripts":{
+  "scripts": {
     "prestart": "babel-node buildScripts/startMessage.js",
-    "start": "npm-run-all --parallel security-check open:src",
+    "start": "npm-run-all --parallel security-check open:src lint",
     "open:src": "babel-node buildScripts/srcServer.js",
+    "lint": "esw webpack.config.* src buildScripts --color",
+    "lint:watch": "npm run lint -- --watch",
     "security-check": "nsp check",
     "localtunnel": "lt --port 3000",
     "share": "npm-run-all --parallel open:src localtunnel"
@@ -29,7 +31,7 @@
     "compression": "^1.7.0",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
-    "eslint": "^4.7.2",
+    "eslint": "^4.19.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-watch": "^3.1.2",
     "express": "^4.15.4",
