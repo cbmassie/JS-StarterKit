@@ -8,8 +8,8 @@
   "readme": "README.md",
   "scripts": {
     "prestart": "babel-node buildScripts/startMessage.js",
-    "start": "npm-run-all --parallel security-check open:src lint",
-    "open:src": "babel-node buildScripts/srcServer.js",
+    "start": "npm-run-all --parallel security-check opn:src lint",
+    "opn:src": "babel-node buildScripts/srcServer.js",
     "lint": "esw webpack.config.* src buildScripts --color",
     "lint:watch": "npm run lint -- --watch",
     "security-check": "nsp check",
@@ -17,6 +17,7 @@
     "share": "npm-run-all --parallel open:src localtunnel"
   },
   "dependencies": {
+    "@types/opn": "^5.1.0",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
@@ -41,11 +42,11 @@
     "json-server": "^0.12.0",
     "localtunnel": "^1.8.3",
     "mocha": "^3.5.3",
-    "nock": "^9.0.20",
+    "nock": "^9.3.2",
     "npm-run-all": "^4.1.1",
     "nsp": "^3.2.1",
     "numeral": "^2.0.6",
-    "open": "^0.0.5",
+    "open": "0.0.5",
     "rimraf": "^2.6.2",
     "style-loader": "^0.18.2",
     "webpack": "^3.6.0",
