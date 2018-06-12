@@ -16,7 +16,8 @@
     "localtunnel": "lt --port 3000",
     "share": "npm-run-all --parallel open:src localtunnel",
     "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "generate-mock-data": "babel-node buildScripts/generateMockData"
   },
   "dependencies": {
     "@types/opn": "^5.1.0",
@@ -40,7 +41,7 @@
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^3.0.0",
     "jsdom": "^11.2.0",
-    "json-schema-faker": "^0.5.0-rc11",
+    "json-schema-faker": "^0.5.0-rc15",
     "json-server": "^0.12.0",
     "localtunnel": "^1.8.3",
     "mocha": "^3.5.3",
