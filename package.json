@@ -8,7 +8,7 @@
   "readme": "README.md",
   "scripts": {
     "prestart": "babel-node buildScripts/startMessage.js",
-    "start": "npm-run-all --parallel security-check opn:src lint test:watch",
+    "start": "npm-run-all --parallel security-check opn:src lint test:watch start-mockapi",
     "opn:src": "babel-node buildScripts/srcServer.js",
     "lint": "esw webpack.config.* src buildScripts --color",
     "lint:watch": "npm run lint -- --watch",
@@ -17,10 +17,11 @@
     "share": "npm-run-all --parallel open:src localtunnel",
     "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
     "test:watch": "npm run test -- --watch",
-    "generate-mock-data": "babel-node buildScripts/generateMockData"
+    "generate-mock-data": "babel-node buildScripts/generateMockData",
+    "prestart-mockapi": "npm run generate-mock-data",
+    "start-mockapi": "json-server --watch src/api/db.json --port 3001"
   },
   "dependencies": {
-    "@types/opn": "^5.1.0",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
@@ -50,6 +51,7 @@
     "npm-run-all": "^4.1.1",
     "nsp": "^3.2.1",
     "numeral": "^2.0.6",
+    "@types/opn": "^5.1.0",
     "open": "0.0.5",
     "rimraf": "^2.6.2",
     "style-loader": "^0.18.2",
