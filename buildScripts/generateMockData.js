@@ -10,13 +10,18 @@ import jsf from 'json-schema-faker';
 import {schema} from './mockDataSchema';
 import fs from 'fs';
 import chalk from 'chalk';
+import faker from 'faker';
 
-const json = JSON.stringify(jsf(schema));
+jsf.extend("faker", function(){
+  return faker;
+});
 
-fs.writeFile('./src/api/db.json', json, function(err){
-  if(err){
-    return console.log(chalk.red(err));
-  }else{
-    console.log(chalk.green("Mock data was generated."));
-  }
+jsf.resolve(schema).then(function(result) {
+  fs.writeFile('./src/api/db.json', JSON.stringify(result, null, 2), function(err){
+      if (err) {
+          return (console.log(chalk.red(err)));
+      } else {
+          console.log(chalk.green('Mock Data Generated'));
+      }
+  });
 });
