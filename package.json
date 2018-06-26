@@ -45,7 +45,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-watch": "^3.1.2",
     "express": "^4.15.4",
-    "extract-text-webpack-plugin": "^3.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "faker": "^4.1.0",
     "html-webpack-plugin": "^3.2.0",
     "jsdom": "^11.2.0",
@@ -61,7 +61,7 @@
     "rimraf": "^2.6.2",
     "style-loader": "^0.18.2",
     "webpack": "^3.6.0",
-    "webpack-dev-middleware": "^1.12.0",
+    "webpack-dev-middleware": "^1.12.2",
     "webpack-hot-middleware": "^2.19.1",
     "webpack-md5-hash": "^0.0.5"
   }
